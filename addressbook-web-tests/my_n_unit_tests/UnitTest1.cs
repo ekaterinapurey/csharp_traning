@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;  //всегда делать
 using OpenQA.Selenium; //селениум
 using OpenQA.Selenium.Chrome; //для браузера
-using System; // сам
+using System; // сам1
 using System.Collections.Generic; //
 using System.Linq; //
 using System.Text;
