@@ -7,6 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "addressbook-web-tests", "ad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "my_n_unit_tests", "my_n_unit_tests\my_n_unit_tests.csproj", "{8E2FF2D5-A648-40DC-9791-516961089AFB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "New Folder", "New Folder", "{94A6AFC7-DD7A-4D23-8ECF-DFAC64C699F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{453C965D-87EB-44A6-92A6-8A694E1E4322}"
+	ProjectSection(SolutionItems) = preProject
+		NUnitTestClass.cs = NUnitTestClass.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testsplach", "Testsplach\Testsplach.csproj", "{6D83B1C5-D3F9-4454-B25E-342BC50D118A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +30,10 @@ Global
 		{8E2FF2D5-A648-40DC-9791-516961089AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E2FF2D5-A648-40DC-9791-516961089AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E2FF2D5-A648-40DC-9791-516961089AFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D83B1C5-D3F9-4454-B25E-342BC50D118A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D83B1C5-D3F9-4454-B25E-342BC50D118A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D83B1C5-D3F9-4454-B25E-342BC50D118A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D83B1C5-D3F9-4454-B25E-342BC50D118A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

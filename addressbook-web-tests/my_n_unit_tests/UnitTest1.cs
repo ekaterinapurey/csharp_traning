@@ -1,9 +1,9 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using NUnit.Framework;  //всегда делать
+using OpenQA.Selenium; //селениум
+using OpenQA.Selenium.Chrome; //для браузера
+using System; // сам
+using System.Collections.Generic; //
+using System.Linq; //
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,10 +31,11 @@ public class Tests
         loginInput.SendKeys("admin");
         var passwordInput = mDriver.FindElement(By.XPath(".//*[@name='pass']"));
         passwordInput.SendKeys("secret");
-
+        Thread.Sleep(5000);
         var loginBtn = mDriver.FindElement(By.XPath(".//*[@value='Login']"));
         loginBtn.Click();
+        Thread.Sleep(10000);
 
-        //mDriver.Close(); xpath=//input[@value='Login']
+        mDriver.Close();
     }
 }
