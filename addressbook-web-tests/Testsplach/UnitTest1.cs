@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System;//1
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -51,7 +51,22 @@ namespace addressbook_web_tests
             driver.FindElement(By.Name("pass")).Clear();
             driver.FindElement(By.Name("pass")).SendKeys("secret");
             driver.FindElement(By.XPath("//input[@value='Login']")).Click();
-            Thread.Sleep(5000);
+            driver.FindElement(By.LinkText("groups")).Click();
+            driver.FindElement(By.Name("new")).Click();
+            driver.FindElement(By.XPath("//form[@action='/addressbook/group.php']")).Click();
+            driver.FindElement(By.Name("group_name")).Click();
+            driver.FindElement(By.Name("group_name")).Clear();
+            driver.FindElement(By.Name("group_name")).SendKeys("hello");
+            driver.FindElement(By.Name("group_header")).Click();
+            driver.FindElement(By.Name("group_header")).Clear();
+            driver.FindElement(By.Name("group_header")).SendKeys("hello");
+            driver.FindElement(By.Name("group_footer")).Click();
+            driver.FindElement(By.Name("group_footer")).Clear();
+            driver.FindElement(By.Name("group_footer")).SendKeys("hello");
+            driver.FindElement(By.Name("submit")).Click();
+            driver.FindElement(By.XPath("//div[@id='content']/div")).Click();
+            driver.FindElement(By.LinkText("group page")).Click();
+            driver.FindElement(By.LinkText("Logout")).Click();
             // ERROR: Caught exception [unknown command []]
         }
         private bool IsElementPresent(By by)
