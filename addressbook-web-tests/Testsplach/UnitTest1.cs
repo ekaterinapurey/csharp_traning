@@ -68,7 +68,6 @@ namespace addressbook_web_tests
 
         private void FillGroupForm(string name, string header, string footer)
         {
-            driver.FindElement(By.XPath("//form[@action='/addressbook/group.php']")).Click();
             driver.FindElement(By.Name("group_name")).Click();
             driver.FindElement(By.Name("group_name")).Clear();
             driver.FindElement(By.Name("group_name")).SendKeys(name);
