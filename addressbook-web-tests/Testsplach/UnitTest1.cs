@@ -9,7 +9,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
  
 
-namespace addressbook_web_tests
+namespace WebAddressbookTests
 {
     [TestFixture]
     public class GroupCreationTests
