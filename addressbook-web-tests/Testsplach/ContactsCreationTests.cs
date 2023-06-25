@@ -1,18 +1,17 @@
-﻿using System;//1
+﻿using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
- 
+using OpenQA.Selenium.Chrome;
 
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class GroupCreationTests
+    public class ContactsCreationTests
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -42,58 +41,55 @@ namespace WebAddressbookTests
         }
 
         [Test]
-        public void GroupCreationTest()
+        public void ContactsCreationTest()
         {
             OpenHomePage();
-            Login(new AccountData ("admin", "secret"));
-            GoToGroupsPage();
-            InitGroupCreation();
-            GroupData group = new GroupData("aaa");
-            group.Header = "ddd";
-            group.Footer = "fff";
-            FillGroupForm(group);
-            SubmitGroupCreation();
-            ReturnToGroupsPage();
-            // ERROR: Caught exception [unknown command []]
+            Login(new AccountData("admin", "secret"));
+            GoToContactsPage();
+            InitNewContactsCreation();
+            ContactsData contacts = new ContactsData ("Иван", "Чижиков");
+            contacts.Middlename = "Чижиков";
+            FillContactsForm(contacts);
+            SubmitContactsCreation();
+            ReturnToContactsPage();
         }
 
-        private void ReturnToGroupsPage()
+        private void ReturnToContactsPage()
         {
-            driver.FindElement(By.LinkText("group page")).Click();
-            driver.FindElement(By.LinkText("Logout")).Click();
+            driver.FindElement(By.LinkText("home page")).Click();
+            driver.Navigate().GoToUrl("http://localhost/addressbook/index.php");
         }
 
-        private void SubmitGroupCreation()
+        private void SubmitContactsCreation()
         {
-            driver.FindElement(By.Name("submit")).Click();
-            driver.FindElement(By.XPath("//div[@id='content']/div")).Click();
+            driver.FindElement(By.XPath("//div[@id='content']/form/input[21]")).Click();
         }
 
-        private void FillGroupForm(GroupData group)
+        private void FillContactsForm(ContactsData contacts)
         {
-            driver.FindElement(By.Name("group_name")).Click();
-            driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys(group.Name);
-            driver.FindElement(By.Name("group_header")).Click();
-            driver.FindElement(By.Name("group_header")).Clear();
-            driver.FindElement(By.Name("group_header")).SendKeys(group.Header);
-            driver.FindElement(By.Name("group_footer")).Click();
-            driver.FindElement(By.Name("group_footer")).Clear();
-            driver.FindElement(By.Name("group_footer")).SendKeys(group.Footer);
+            driver.FindElement(By.Name("contacts_firstname")).Click();
+            driver.FindElement(By.Name("contacts_firstname")).Clear();
+            driver.FindElement(By.Name("contacts_firstname")).SendKeys(contacts.Firstname);
+            driver.FindElement(By.Name("contacts_middlename")).Click();
+            driver.FindElement(By.Name("contacts_middlename")).Clear();
+            driver.FindElement(By.Name("contacts_middlename")).SendKeys(contacts.Middlename);
         }
 
-        private void InitGroupCreation()
+        private void InitNewContactsCreation()
         {
-            driver.FindElement(By.Name("new")).Click();
+            driver.Navigate().GoToUrl("http://localhost/addressbook/edit.php");
+            driver.FindElement(By.Name("firstname")).Click();
         }
 
-        private void GoToGroupsPage()
+        private void GoToContactsPage()
         {
-            driver.FindElement(By.LinkText("groups")).Click();
+            driver.FindElement(By.LinkText("add new")).Click();
         }
 
         private void Login(AccountData account)
         {
+            driver.FindElement(By.Id("LoginForm")).Click();
+            driver.FindElement(By.Name("user")).Click();
             driver.FindElement(By.Name("user")).Clear();
             driver.FindElement(By.Name("user")).SendKeys(account.Username);
             driver.FindElement(By.Name("pass")).Click();
@@ -101,8 +97,6 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("pass")).SendKeys(account.Password);
             driver.FindElement(By.XPath("//input[@value='Login']")).Click();
         }
-
-   
 
         private void OpenHomePage()
         {
