@@ -67,12 +67,12 @@ namespace WebAddressbookTests
 
         private void FillContactsForm(ContactsData contacts)
         {
-            driver.FindElement(By.Name("contacts_firstname")).Click();
-            driver.FindElement(By.Name("contacts_firstname")).Clear();
-            driver.FindElement(By.Name("contacts_firstname")).SendKeys(contacts.Firstname);
-            driver.FindElement(By.Name("contacts_middlename")).Click();
-            driver.FindElement(By.Name("contacts_middlename")).Clear();
-            driver.FindElement(By.Name("contacts_middlename")).SendKeys(contacts.Middlename);
+            driver.FindElement(By.Name("firstname")).Click();
+            driver.FindElement(By.Name("firstname")).Clear();
+            driver.FindElement(By.Name("firstname")).SendKeys(contacts.Firstname);
+            driver.FindElement(By.Name("middlename")).Click();
+            driver.FindElement(By.Name("middlename")).Clear();
+            driver.FindElement(By.Name("middlename")).SendKeys(contacts.Middlename);
         }
 
         private void InitNewContactsCreation()
