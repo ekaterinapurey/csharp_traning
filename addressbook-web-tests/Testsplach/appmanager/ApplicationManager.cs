@@ -6,6 +6,7 @@ using NUnit.Framework;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace WebAddressbookTests
 {
@@ -74,7 +75,12 @@ namespace WebAddressbookTests
                 return groupHelper;
             }
         }
-
-        public object Contacts { get; set; }
+        public ContactHelper Contacts
+        {
+            get
+            {
+                return contactHelper;
+            }
+        }
     }
 }

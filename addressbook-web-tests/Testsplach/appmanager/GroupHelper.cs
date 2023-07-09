@@ -83,6 +83,7 @@ namespace WebAddressbookTests
             {
                 driver.FindElement(By.LinkText("group page")).Click();
                 driver.FindElement(By.LinkText("Logout")).Click();
+            driver.FindElement(By.XPath("//img@alt='Address book']")).Click();
             return this;
             }
         public GroupHelper SelectGroup(int index)

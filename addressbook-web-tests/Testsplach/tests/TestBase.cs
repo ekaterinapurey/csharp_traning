@@ -107,14 +107,14 @@ namespace WebAddressbookTests
         {
             driver.FindElement(By.LinkText("add new")).Click();
         }
-        protected void FillContactsForm(ContactData contacts)
+        protected void FillContactsForm(ContactData contact)
         {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(contacts.Firstname);
+            driver.FindElement(By.Name("firstname")).SendKeys(contact.Firstname);
             driver.FindElement(By.Name("middlename")).Click();
             driver.FindElement(By.Name("middlename")).Clear();
-            driver.FindElement(By.Name("middlename")).SendKeys(contacts.Middlename);
+            driver.FindElement(By.Name("middlename")).SendKeys(contact.Middlename);
         }
         protected void SubmitContactCreation()
         {
@@ -139,14 +139,14 @@ namespace WebAddressbookTests
             driver.FindElement(By.XPath("//div[@id='content']/form/input[21]")).Click();
         }
 
-        protected void FillContactForm(ContactData contacts)
+        protected void FillContactForm(ContactData contact)
         {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(contacts.Firstname);
+            driver.FindElement(By.Name("firstname")).SendKeys(contact.Firstname);
             driver.FindElement(By.Name("middlename")).Click();
             driver.FindElement(By.Name("middlename")).Clear();
-            driver.FindElement(By.Name("middlename")).SendKeys(contacts.Middlename);
+            driver.FindElement(By.Name("middlename")).SendKeys(contact.Middlename);
         }
         
         protected void ContactCreationTest()
