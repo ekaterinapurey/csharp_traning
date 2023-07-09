@@ -4,41 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace WebAddressbookTests
+namespace WebAaddressbookTests
 {
     public class ContactData
     {
-        private string firstname;
-        private string middlename;
+        public string firstname;
+        public string middlename = "";
 
-
-        public ContactData(string firstname, string middlename)
+        public ContactData(string firstname)
         {
             this.firstname = firstname;
-            this.middlename = middlename;
         }
         public string Firstname
         {
-            get
-            {
-                return firstname;
-            }
-            set
-            {
-                firstname = value;
-            }
+            get { return firstname; }
+            set { firstname = value; }
         }
+
         public string Middlename
         {
-            get
-            {
-                return middlename;
-            }
-            set
-            {
-                middlename = value;
-            }
+            get { return middlename; }
+            set { middlename = value; }
         }
+
+
     }
+
 }

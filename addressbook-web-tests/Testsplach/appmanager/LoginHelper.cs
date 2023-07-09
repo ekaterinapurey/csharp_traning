@@ -15,7 +15,7 @@ namespace WebAddressbookTests
         public LoginHelper(ApplicationManager manager)
             : base(manager)
         {
-            this.driver = driver;
+     
         }
 
             public void Login(AccountData account)

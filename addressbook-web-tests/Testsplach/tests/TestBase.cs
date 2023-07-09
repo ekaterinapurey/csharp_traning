@@ -27,6 +27,7 @@ namespace WebAddressbookTests
             app = new ApplicationManager();
             app.Navigator.GoToHomePage();
             app.Auth.Login(new AccountData("admin", "secret"));
+            app.Contacts.Create(contact);
 
             driver = new ChromeDriver();
             baseURL = "http://localhost/addressbook";
@@ -106,7 +107,7 @@ namespace WebAddressbookTests
         {
             driver.FindElement(By.LinkText("add new")).Click();
         }
-        private void FillContactsForm(ContactData contacts)
+        protected void FillContactsForm(ContactData contacts)
         {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
