@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace WebAddressbookTests
 {
-    public class ContactsData
+    public class ContactData
     {
         private string firstname;
         private string middlename;
 
 
-        public ContactsData(string firstname, string middlename)
+        public ContactData(string firstname, string middlename)
         {
             this.firstname = firstname;
             this.middlename = middlename;

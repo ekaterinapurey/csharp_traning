@@ -14,6 +14,11 @@ namespace WebAddressbookTests
         [Test]
         public void GroupCreationTest()
         {
+            GoToHomePage();
+            Login(new AccountData("admin", "secret"));
+            GoToGroupsPage();
+            InitNewGroupCreation();
+            ReturnToGroupsPage();
             GroupData group = new GroupData("aaa");
             group.Header = "ddd";
             group.Footer = "fff";
