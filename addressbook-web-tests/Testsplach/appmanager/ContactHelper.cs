@@ -18,13 +18,14 @@ namespace WebAddressbookTests
         {
         }
 
-        public ContactHelper Create (ContactData contact)
+        public ContactHelper Create(ContactData contact)
         {
             InitNewContactCreation();
             FillContactForm(contact);
             SubmitContactCreation();
             ReturnToHomePage();
             Logout();
+            return this;
         }
 
         public ContactHelper InitNewContactCreation()
@@ -65,6 +66,5 @@ namespace WebAddressbookTests
             return this;
 
         }
-
     }
 }
