@@ -54,7 +54,6 @@ namespace WebAddressbookTests
         }
         protected void Login(AccountData account)
         {
-            driver.FindElement(By.Name("user")).Click();
             driver.FindElement(By.Name("user")).Clear();
             driver.FindElement(By.Name("user")).SendKeys(account.Username);
             driver.FindElement(By.Name("pass")).Click();
@@ -103,9 +102,15 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("delete")).Click();
         }
 
+
+        protected void GoToContactsPage()
+        {
+            driver.FindElement(By.LinkText("add new")).Click();
+        }
         protected void InitNewContactCreation()
         {
             driver.FindElement(By.LinkText("add new")).Click();
+
         }
         protected void FillContactsForm(ContactData contact)
         {
