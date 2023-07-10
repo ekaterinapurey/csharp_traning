@@ -154,7 +154,8 @@ namespace WebAddressbookTests
             GoToHomePage();
             Login(new AccountData("admin", "secret"));
             InitNewContactCreation();
-            ContactData contact = new ContactData("Иван", "Чижиков");
+            ContactData contact = new ContactData("");
+            contact.Firstname = "Иван";
             contact.Middlename = "Чижиков";
             FillContactsForm(contact);
             SubmitContactCreation();
