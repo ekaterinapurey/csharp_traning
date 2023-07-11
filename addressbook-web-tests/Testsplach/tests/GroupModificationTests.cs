@@ -9,22 +9,21 @@ using System.Reflection;
 using OpenQA.Selenium;
 
 
-
-
 namespace WebAddressbookTests
 {
 
-[TestFixture]
+    [TestFixture]
 
 	public class GroupModificationTests : TestBase
 	{
+
 
     [Test]
     public void GroupModificationTest()
     {
         GroupData newData = new GroupData("zzz");
-            newData.Header = "ttt";
-            newData.Footer = "qqq";
+        newData.Header = "ttt";
+        newData.Footer = "qqq";
 
         app.Groups.Modify(1, newData);
     }
