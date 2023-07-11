@@ -23,8 +23,15 @@ namespace WebAddressbookTests
             InitNewContactCreation();
             FillContactForm(contact);
             SubmitContactCreation();
-            ReturnToHomePage();
-            Logout();
+            return this;
+        }
+
+        public ContactHelper Remove(int v)
+        {
+            manager.Navigator.GoToHomePage();
+            SelectContact(v);
+            RemoveContact();
+            SubmitContactRemove();
             return this;
         }
 
@@ -37,12 +44,12 @@ namespace WebAddressbookTests
         public ContactHelper FillContactForm(ContactData contact)
         {
             
-                driver.FindElement(By.Name("firstname")).Click();
-                driver.FindElement(By.Name("firstname")).Clear();
-                driver.FindElement(By.Name("firstname")).SendKeys(contact.Firstname);
-                driver.FindElement(By.Name("middlename")).Click();
-                driver.FindElement(By.Name("middlename")).Clear();
-                driver.FindElement(By.Name("middlename")).SendKeys(contact.Middlename);
+            driver.FindElement(By.Name("firstname")).Click();
+            driver.FindElement(By.Name("firstname")).Clear();
+            driver.FindElement(By.Name("firstname")).SendKeys(contact.Firstname);
+            driver.FindElement(By.Name("middlename")).Click();
+            driver.FindElement(By.Name("middlename")).Clear();
+            driver.FindElement(By.Name("middlename")).SendKeys(contact.Middlename);
             return this;
         }
 
@@ -53,18 +60,50 @@ namespace WebAddressbookTests
 
         }
 
-        public ContactHelper ReturnToHomePage()
+        public ContactHelper Modify(int v, ContactData newData)
         {
-            driver.FindElement(By.LinkText("home page")).Click();
-            return this;
+            manager.Navigator.GoToHomePage();
+            InitContactModification();
+            FillContactForm(newData);
+            SubmitContactModification();
+            manager.Navigator.GoToHomePage();
 
+            return this;
         }
 
-        public ContactHelper Logout()
+        public ContactHelper InitContactModification()
         {
-            driver.FindElement(By.LinkText("Logout")).Click();
-            return this;
 
+            driver.FindElement(By.XPath("//img[@alt='Edit']")).Click();
+
+            return this;
         }
+        public ContactHelper SelectContact(int index)
+        {
+
+            driver.FindElement(By.XPath("//tr[" + (index + 1) + "]//input")).Click();
+
+            return this;
+        }
+
+        public ContactHelper RemoveContact()
+        {
+            driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
+
+            return this;
+        }
+
+        public ContactHelper SubmitContactRemove()
+        {
+
+            driver.SwitchTo().Alert().Accept();
+            return this;
+        }
+        public ContactHelper SubmitContactModification()
+        {
+            driver.FindElement(By.Name("update")).Click();
+            return this;
+        }
+
     }
 }
