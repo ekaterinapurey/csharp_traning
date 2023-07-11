@@ -15,12 +15,10 @@ namespace WebAddressbookTests
         {
             app.Navigator.GoToHomePage();
             app.Auth.Login(new AccountData("admin", "secret"));
-            InitNewContactCreation();
+  
             ContactData contact = new ContactData("");
             contact.Firstname = "Иван";
             contact.Middlename = "Рыжиков";
-            ReturnToHomePage();
-            Logout();
 
         }
     }

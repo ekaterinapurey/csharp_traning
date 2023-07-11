@@ -25,7 +25,6 @@ namespace WebAddressbookTests
             SubmitContactCreation();
             ReturnToHomePage();
             Logout();
-            return this;
         }
 
         public ContactHelper InitNewContactCreation()
