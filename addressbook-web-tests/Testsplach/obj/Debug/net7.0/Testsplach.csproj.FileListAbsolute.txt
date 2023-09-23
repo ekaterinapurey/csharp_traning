@@ -109,3 +109,10 @@
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/obj/Debug/net7.0/Testsplach.pdb
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/obj/Debug/net7.0/Testsplach.genruntimeconfig.cache
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/obj/Debug/net7.0/ref/Testsplach.dll
+/Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+/Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/Microsoft.Win32.SystemEvents.dll
+/Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/System.Drawing.Common.dll
+/Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/runtimes/win/lib/net7.0/Microsoft.Win32.SystemEvents.dll
+/Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/runtimes/win/lib/net7.0/System.Drawing.Common.dll
