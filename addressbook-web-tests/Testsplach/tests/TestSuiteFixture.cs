@@ -13,7 +13,7 @@ namespace WebAddressbookTests
 	{
         public static ApplicationManager app;
 
-        [SetUp]
+        [OneTimeSetUp]
 		public void InitApplicationManager()
 		{
 			app = new ApplicationManager();
@@ -21,7 +21,7 @@ namespace WebAddressbookTests
             app.Auth.Login(new AccountData("admin", "secret"));
 
         }
-		[TearDown]
+		[OneTimeTearDown]
 
 		public void StopApplicationManager()
 		{
