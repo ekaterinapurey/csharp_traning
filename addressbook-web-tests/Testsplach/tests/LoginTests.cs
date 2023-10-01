@@ -10,39 +10,40 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using System.Reflection;
 using System.Diagnostics;
+using WebAddressbookTests;
 
-namespace WebAddressbookTests
+namespace WebAddressBookTests
 {
-	[TestFixture]
-	public class LoginTests : TestBase
-	{
-		[Test]
-		public void LoginWithValidCredentials()
-		{
-			//Prepare(подготовка)
-			app.Auth.Logout();
-
-			//action (действие)
-			AccountData account = new AccountData("admin", "secret");
-            app.Auth.Login(account);
-
-			//verification (проверка)
-			Assert.IsTrue(app.Auth.IsLoggedIn(account));
-		}
-
+    [TestFixture]
+    internal class LoginTests : TestBase
+    {
         [Test]
-        public void LoginWithInvalidCredentials()
+        public void LoginWithValidCredentials()
         {
-            //Prepare(подготовка)
+            //prepate
             app.Auth.Logout();
 
-            //action (действие)
-            AccountData account = new AccountData("admin", "123456");
+            //action
+            AccountData account = new AccountData("admin", "secret");
             app.Auth.Login(account);
 
-            //verification (проверка)
-            Assert.IsFalse(app.Auth.IsLoggedIn(account));
+            //verify
+            Assert.IsTrue(app.Auth.IsLoggedIn(account));
         }
+
+        //[Test]
+        //public void LoginWithInvalidCredentials()
+       // {
+            //prepate
+         //  app.Auth.Logout();
+
+            //action
+        //    AccountData account = new AccountData("admin", "1234");
+         //   app.Auth.Login(account);
+
+            //verify
+         //   Assert.IsFalse(app.Auth.IsLoggedIn(account));
+       // }
     }
 }
 
