@@ -29,6 +29,7 @@ namespace WebAddressbookTests
 
                 app.Groups.Create(group);
             }
+
             GroupData newData = new GroupData("zzz");
         newData.Header = null;
         newData.Footer = null;

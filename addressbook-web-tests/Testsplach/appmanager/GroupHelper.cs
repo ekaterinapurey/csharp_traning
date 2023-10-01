@@ -106,6 +106,12 @@ namespace WebAddressbookTests
             return this;
 
         }
+        public GroupHelper ReturnToGroupsPage()
+        {
+            driver.FindElement(By.LinkText("group page")).Click();
+            return this;
+        }
+
 
         public bool GroupExists()
         {

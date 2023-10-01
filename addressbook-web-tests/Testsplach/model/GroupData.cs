@@ -6,6 +6,9 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace WebAddressbookTests
 {
@@ -35,19 +38,6 @@ namespace WebAddressbookTests
 
         }
 
-        public string Name
-        {
-            get
-            {
-                return name;
-
-            }
-            set
-            {
-                name = value;
-            }
-        }
-
         public override int GetHashCode()
         {
             return Name.GetHashCode();
@@ -67,28 +57,41 @@ namespace WebAddressbookTests
             return Name.CompareTo(other.Name);
         }
 
+        public string Name
+        {
+            get
+            {
+                return name;
 
-    }
-    public string Header
-    {
-        get
-        {
-            return header;
+            }
+            set
+            {
+                name = value;
+            }
         }
-        set
+
+
+        public string Header
         {
-            header = value;
+            get
+            {
+                return header;
+            }
+            set
+            {
+                header = value;
+            }
         }
-    }
-    public string Footer
-    {
-        get
+        public string Footer
         {
-            return footer;
-        }
-        set
-        {
-            footer = value;
+            get
+            {
+                return footer;
+            }
+            set
+            {
+                footer = value;
+            }
         }
     }
 }

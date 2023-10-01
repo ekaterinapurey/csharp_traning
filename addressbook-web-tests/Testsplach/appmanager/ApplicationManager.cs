@@ -42,7 +42,7 @@ namespace WebAddressbookTests
         {
             try
             {
-                driver.Quit();
+                driver.Close();
             }
             catch (Exception)
             {
