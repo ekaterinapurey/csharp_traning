@@ -16,7 +16,7 @@ namespace WebAddressbookTests
         [Test]
         public void GroupCreationTest()
         {
-            GroupData group = new GroupData("aaa");
+            GroupData group = new GroupData("zzz");
             group.Header = "ddd";
             group.Footer = "fff";
 
@@ -36,7 +36,7 @@ namespace WebAddressbookTests
         public void BadNameGroupCreationTest()
         {
 
-            GroupData group = new GroupData("a'a");
+            GroupData group = new GroupData("");
             group.Header = "";
             group.Footer = "";
 

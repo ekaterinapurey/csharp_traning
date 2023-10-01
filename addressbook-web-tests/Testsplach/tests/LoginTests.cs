@@ -31,19 +31,19 @@ namespace WebAddressBookTests
             Assert.IsTrue(app.Auth.IsLoggedIn(account));
         }
 
-        //[Test]
-        //public void LoginWithInvalidCredentials()
-       // {
+        [Test]
+        public void LoginWithInvalidCredentials()
+        {
             //prepate
-         //  app.Auth.Logout();
+            app.Auth.Logout();
 
             //action
-        //    AccountData account = new AccountData("admin", "1234");
-         //   app.Auth.Login(account);
+            AccountData account = new AccountData("admin", "1234");
+            app.Auth.Login(account);
 
             //verify
-         //   Assert.IsFalse(app.Auth.IsLoggedIn(account));
-       // }
+            Assert.IsFalse(app.Auth.IsLoggedIn(account));
+        }
     }
 }
 

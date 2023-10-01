@@ -102,9 +102,11 @@ namespace WebAddressbookTests
         public ContactHelper SubmitContactModification()
         {
 
-            manager.Navigator.GoToHomePage();
 
-            driver.FindElement(By.Name("update")).Click();
+           driver.FindElement(By.Name("update")).Click();
+           manager.Navigator.GoToHomePage();
+
+
             return this;
         }
 
