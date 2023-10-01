@@ -21,6 +21,8 @@ namespace WebAddressbookTests
     [Test]
     public void ContactModificationTest()
     {
+
+
             if (!app.Contacts.ContactExists()) //  контакт не существует
             {
                 ContactData contact = new ContactData("Ivan");
@@ -29,10 +31,11 @@ namespace WebAddressbookTests
             }
 
             ContactData newContact = new ContactData("Иван");
-        newContact.Firstname = "Иван";
-        newContact.Middlename = "Чижиков";
+            newContact.Firstname = "Иван";
+            newContact.Middlename = "Чижиков";
 
-        app.Contacts.Modify(1, newContact);
+
+            app.Contacts.Modify(1, newContact);
     }
   }
 }
