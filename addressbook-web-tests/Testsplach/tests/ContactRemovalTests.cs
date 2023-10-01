@@ -13,13 +13,24 @@ namespace WebAddressbookTests
         [Test]
         public void ContactRemovalTest()
         {
+            List<ContactData> oldContacts = app.Contacts.GetContactList();
+
             if (!app.Contacts.ContactExists()) //  контакт не существует
             {
                 ContactData contact = new ContactData("Ivan");
                 contact.Middlename = "Ivanovich";
                 app.Contacts.Create(contact);
+
             }
             app.Contacts.Remove(1);
+
+            List<ContactData> newContacts = app.Contacts.GetContactList();
+
+            oldContacts.RemoveAt(0);
+            //oldContacts.Sort();
+            //newContacts.Sort();
+            Assert.AreEqual(oldContacts.Count, newContacts.Count);
+
 
         }
     }
