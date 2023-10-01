@@ -101,8 +101,16 @@ namespace WebAddressbookTests
         }
         public ContactHelper SubmitContactModification()
         {
+
+            manager.Navigator.GoToHomePage();
+
             driver.FindElement(By.Name("update")).Click();
             return this;
+        }
+
+        public bool ContactExists()
+        {
+            return IsElementPresent(By.Name("selected[]"));
         }
 
     }

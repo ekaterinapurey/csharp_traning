@@ -21,7 +21,14 @@ namespace WebAddressbookTests
     [Test]
     public void ContactModificationTest()
     {
-        ContactData newContact = new ContactData("Иван");
+            if (!app.Contacts.ContactExists()) //  контакт не существует
+            {
+                ContactData contact = new ContactData("Ivan");
+                contact.Middlename = "Ivanovich";
+                app.Contacts.Create(contact);
+            }
+
+            ContactData newContact = new ContactData("Иван");
         newContact.Firstname = "Иван";
         newContact.Middlename = "Чижиков";
 
