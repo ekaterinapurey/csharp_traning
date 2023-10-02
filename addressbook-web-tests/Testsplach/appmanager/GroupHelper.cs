@@ -35,6 +35,7 @@ namespace WebAddressbookTests
 
         public GroupHelper Modify(int v, GroupData newData)
         {
+            manager.Navigator.GoToGroupsPage();
 
             SelectGroup(v);
             InitGroupModification();
@@ -99,7 +100,7 @@ namespace WebAddressbookTests
 
         public GroupHelper InitGroupModification()
         {
-            manager.Navigator.GoToGroupsPage();
+           // manager.Navigator.GoToGroupsPage();
 
             driver.FindElement(By.Name("edit")).Click();
             return this;
