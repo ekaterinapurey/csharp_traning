@@ -11,9 +11,9 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-    public class ContactData
+    public class ContactData : IEquatable<ContactData>, IComparable<ContactData>
     {
-        public string firstname="";
+        public string firstname = "";
         public string middlename = "";
         public string lastname = "";
 
