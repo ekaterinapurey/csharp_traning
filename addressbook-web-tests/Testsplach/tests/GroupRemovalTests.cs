@@ -24,15 +24,25 @@ namespace WebAddressbookTests
                 group.Footer = "x";
 
                 app.Groups.Create(group);
+
             }
             app.Groups.Remove(0);
-           
-            List<GroupData> newGroups = app.Groups.GetGroupList();
 
+            Assert.AreEqual(oldGroups.Count - 1, app.Groups.GetGroupCount());
+
+
+            List<GroupData> newGroups = app.Groups.GetGroupList();
+            GroupData toBeRemoved = oldGroups[0];
             oldGroups.RemoveAt(0);
             oldGroups.Sort();
             newGroups.Sort();
-            Assert.AreEqual(oldGroups, newGroups);           
+            Assert.AreEqual(oldGroups, newGroups);
+
+
+            foreach (GroupData group in newGroups)
+            {
+                Assert.AreNotEqual(group.Id, toBeRemoved.Id);
+            }
 
         }
     }

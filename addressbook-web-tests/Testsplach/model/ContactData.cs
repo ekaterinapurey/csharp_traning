@@ -73,6 +73,8 @@ namespace WebAddressbookTests
             set { lastname = value; }
         }
 
+        public string Id { get; set; }
+
     }
 
 }
