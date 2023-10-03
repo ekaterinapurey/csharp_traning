@@ -85,6 +85,15 @@ namespace WebAddressbookTests
 
             return this;
         }
+
+        public ContactHelper GoToContactView(int index)
+        {
+            driver.FindElements(By.Name("entry"))[index]
+               .FindElements(By.TagName("td"))[6]
+               .FindElement(By.TagName("a")).Click();
+
+            return this;
+        }
         public ContactHelper SelectContact(int index)
         {
 
@@ -163,10 +172,22 @@ namespace WebAddressbookTests
                 Address = address,
                 HomePhone = homePhone,
                 MobilePhone = mobilePhone,
-                WorkPhone = workPhone
+                WorkPhone = workPhone,
 
             };
 
+
+        }
+
+        public ContactData GetContactInformationFromViewForm(int index)
+        {
+            manager.Navigator.GoToHomePage();
+            GoToContactView(0);
+
+            string info = driver.FindElement(By.XPath("/html//div[@id='content']")).Text;
+            string[] infoItems = info.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            
+            return new ContactData(infoItems[0], null);
 
         }
 
