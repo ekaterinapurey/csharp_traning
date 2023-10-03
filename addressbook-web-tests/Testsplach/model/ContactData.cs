@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using NUnit.Framework;
@@ -13,13 +14,16 @@ namespace WebAddressbookTests
 {
     public class ContactData : IEquatable<ContactData>, IComparable<ContactData>
     {
-        public string firstname = "";
-        public string middlename = "";
-        public string lastname = "";
+
+        public string allPhones;
 
         public ContactData(string firstname)
         {
-            this.firstname = firstname;
+           Firstname = firstname;
+        }
+
+        public ContactData(string firstname, string lastName) : this(firstname)
+        {
         }
 
         public bool Equals(ContactData other)
@@ -55,25 +59,44 @@ namespace WebAddressbookTests
             return Firstname.CompareTo(other.Firstname);
         }
 
-        public string Firstname
-        {
-            get { return firstname; }
-            set { firstname = value; }
-        }
+        public string Firstname { get; set; }
+        public string Middlename { get; set; }
 
-        public string Middlename
-        {
-            get { return middlename; }
-            set { middlename = value; }
-        }
-
-        public string Lastname
-        {
-            get { return lastname; }
-            set { lastname = value; }
-        }
+        public string Lastname { get; set; }
 
         public string Id { get; set; }
+        public string Address { get; set; }
+        public string AllPhones
+        {
+            get
+            {
+                if (allPhones != null)
+                {
+                    return allPhones;
+
+                }
+                else
+                {
+                    return CleanUp(HomePhone) + CleanUp(MobilePhone) + CleanUp(WorkPhone).Trim();
+                }
+            }
+            set
+            {
+                allPhones = value;
+            }
+        }
+        public string HomePhone { get; set; }
+        public string MobilePhone { get; set; }
+        public string WorkPhone { get; set; }
+
+        private string CleanUp(string phone)
+        {
+            if (phone == null || phone == "")
+            {
+                return "";
+            }
+            return Regex.Replace(phone, "[ - ()]", "") + "\r\n";
+        }
 
     }
 
