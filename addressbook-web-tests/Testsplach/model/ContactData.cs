@@ -15,16 +15,20 @@ namespace WebAddressbookTests
 {
     public class ContactData : IEquatable<ContactData>, IComparable<ContactData>
     {
-
+        public string HomePhone { get; set; }
+        public string MobilePhone { get; set; }
+        public string WorkPhone { get; set; }
+        public string AllEmails { get; set; }
+        public string Email { get; set; }
+        public string Email2 { get; set; }
+        public string Email3 { get; set; }
         public string allPhones;
+        public string Address { get; set; }
+        public string ViewForm { get; set; }
 
         public ContactData(string firstname)
         {
            Firstname = firstname;
-        }
-
-        public ContactData(string firstname, string lastName) : this(firstname)
-        {
         }
 
         public bool Equals(ContactData other)
@@ -66,7 +70,6 @@ namespace WebAddressbookTests
         public string Lastname { get; set; }
 
         public string Id { get; set; }
-        public string Address { get; set; }
         public string AllPhones
         {
             get
@@ -86,9 +89,6 @@ namespace WebAddressbookTests
                 allPhones = value;
             }
         }
-        public string HomePhone { get; set; }
-        public string MobilePhone { get; set; }
-        public string WorkPhone { get; set; }
 
         private string CleanUp(string phone)
         {
@@ -99,6 +99,11 @@ namespace WebAddressbookTests
             return Regex.Replace(phone, "[ - ()]", "") + "\r\n";
         }
 
+        public ContactData(string firstName, string lastname)
+        {
+            Firstname = firstName;
+            Lastname = lastname;
+        }
     }
 
 }
