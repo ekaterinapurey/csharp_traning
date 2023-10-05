@@ -32,7 +32,7 @@ namespace WebAddressbookTests
             oldContacts.RemoveAt(0);
             oldContacts.Sort();
             newContacts.Sort();
-            Assert.AreEqual(oldContacts.Count, newContacts.Count);
+            Assert.AreEqual(oldContacts, newContacts);
 
             foreach (ContactData contact in newContacts)
             {
