@@ -42,7 +42,7 @@ namespace WebAddressbookTests
             //oldContacts.Add(contact);
             //oldContacts.Sort();
             //newContacts.Sort();
-            //Assert.AreEqual(oldContacts.Count, newContacts.Count);
+            //Assert.AreEqual(oldContacts, newContacts);
 
 
 

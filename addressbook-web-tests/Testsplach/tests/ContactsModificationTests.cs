@@ -44,7 +44,7 @@ namespace WebAddressbookTests
             oldContacts[0] = newContact;
             oldContacts.Sort();
             newContacts.Sort();
-            Assert.AreEqual(oldContacts.Count, newContacts.Count);
+            Assert.AreEqual(oldContacts, newContacts);
 
 
 
