@@ -210,9 +210,21 @@ namespace WebAddressbookTests
                 ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("tr[name='entry']"));
                 foreach (IWebElement element in elements)
                 {
+                    IList<IWebElement> cells = element.FindElements(By.TagName("td"));
+                    string lastName = cells[1].Text;
+                    string firstName = cells[2].Text;
+                    string address = cells[3].Text;
+                    string emails = cells[3].Text;
+                    string phones = cells[3].Text;
                     contactCache.Add(
-                        new ContactData(element.Text)
-                        { Id = element.FindElement(By.TagName("td")).FindElement(By.TagName("input")).GetAttribute("value") }
+                        new ContactData(firstName)
+                        {
+                            Id = element.FindElement(By.TagName("td")).FindElement(By.TagName("input")).GetAttribute("value"),
+                            Lastname = lastName,
+                            Address = address,
+                            AllEmails = emails,
+                            AllPhones = phones
+                        }
                         );
                 }
                             

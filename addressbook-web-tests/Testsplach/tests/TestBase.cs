@@ -10,6 +10,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using System.Reflection;
 using System.Diagnostics;
+using Microsoft.VisualStudio.TestPlatform.Utilities;
 
 namespace WebAddressbookTests
 {
@@ -22,17 +23,19 @@ namespace WebAddressbookTests
         {
             app = ApplicationManager.GetInstance();
         }
-        public static Random rnd = new Random();
+
+        public static Random random = new Random();
         public static string GenerateRandomString(int max)
         {
-
-            int l = Convert.ToInt32(rnd.NextDouble() * max);
-            StringBuilder builder = new StringBuilder();
-            for (int i = 0; i < l; i++)
+            const string src = "abcdefghijklmnopqrstuvwxyz0123456789";
+            string randomString = "";
+         
+            for (var i = 0; i < max; i++)
             {
-                builder.Append(Convert.ToChar(32 + Convert.ToInt32(rnd.NextDouble() * 223)));
+                string result = src[random.Next(0, src.Length)].ToString();
+                randomString += (String.Concat(result.Where(c => !Char.IsWhiteSpace(c))));
             }
-            return builder.ToString();
+            return randomString;
         }
 
     }

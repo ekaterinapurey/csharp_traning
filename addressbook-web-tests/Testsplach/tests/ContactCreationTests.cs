@@ -17,6 +17,14 @@ namespace WebAddressbookTests
             for (int i = 0; i < 5; i++)
             {
                 contacts.Add(new ContactData(GenerateRandomString(30), GenerateRandomString(30))
+                {
+                    Middlename = GenerateRandomString(100),
+                    Address = GenerateRandomString(100),
+                    HomePhone = GenerateRandomString(30),
+                    WorkPhone = GenerateRandomString(30),
+                    MobilePhone = GenerateRandomString(30),
+                    Email = GenerateRandomString(30)
+                }
                 );
             }
             return contacts;
