@@ -7,6 +7,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
+using System.Reflection;
 
 namespace WebAddressbookTests
 {
@@ -120,9 +121,17 @@ namespace WebAddressbookTests
             List<ContactData> contacts = new List<ContactData>();
             manager.Navigator.GoToHomePage();
             ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("tr[name='entry']"));
+           
             foreach (IWebElement element in elements)
             {
-                contacts.Add(new ContactData(element.Text)
+                IList<IWebElement> cells = element.FindElements(By.TagName("td"));
+                string lastName = cells[1].Text;
+                string firstName = cells[2].Text;
+       
+                contacts.Add(new ContactData(firstName)
+                {
+                    Lastname = lastName
+                }
                     );
             }
             return contacts;
