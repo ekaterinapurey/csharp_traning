@@ -22,20 +22,20 @@ namespace WebAddressbookTests
     [Test]
     public void ContactModificationTest()
     {
-            //if (!app.Contacts.ContactExists()) //  контакт не существует
-            //{
-            //    ContactData contact = new ContactData("Ivan");
-            //    contact.Firstname = "Ivanov";
-            //    contact.Middlename = "Ivanovich";
-            //    app.Contacts.Create(contact);
-            //}
+            if (!app.Contacts.ContactExists()) //  контакт не существует
+            {
+                ContactData contact = new ContactData("Ivan");
+                contact.Firstname = "Ivanov";
+                contact.Middlename = "Ivanovich";
+                app.Contacts.Create(contact);
+            }
 
             List<ContactData> oldContacts = app.Contacts.GetContactList();
 
             ContactData newContact = new ContactData("Иван");
             newContact.Firstname = "Иван";
             newContact.Middlename = "Чижиков";
-            app.Contacts.Modify(1, newContact);
+            app.Contacts.Modify(0, newContact);
             Assert.AreEqual(oldContacts.Count, app.Contacts.GetContactCount());
 
             List<ContactData> newContacts = app.Contacts.GetContactList();

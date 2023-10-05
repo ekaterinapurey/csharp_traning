@@ -34,23 +34,19 @@ namespace WebAddressbookTests
         public void ContactCreationTest(ContactData contact)
         {
 
-            //ContactData contact = new ContactData("");
-            //contact.Firstname = "Иван";
-            //contact.Middlename = "Рыжиков";
-
-            //List<ContactData> oldContacts = app.Contacts.GetContactList();
+            List<ContactData> oldContacts = app.Contacts.GetContactList();
 
 
             app.Contacts.Create(contact);
 
-            //Assert.AreEqual(oldContacts.Count + 1, app.Contacts.GetContactCount());
+            Assert.AreEqual(oldContacts.Count + 1, app.Contacts.GetContactCount());
 
 
-            //List<ContactData> newContacts = app.Contacts.GetContactList();
-            //oldContacts.Add(contact);
-            //oldContacts.Sort();
-            //newContacts.Sort();
-            //Assert.AreEqual(oldContacts, newContacts);
+            List<ContactData> newContacts = app.Contacts.GetContactList();
+            oldContacts.Add(contact);
+            oldContacts.Sort();
+            newContacts.Sort();
+            Assert.AreEqual(oldContacts, newContacts);
 
 
 
