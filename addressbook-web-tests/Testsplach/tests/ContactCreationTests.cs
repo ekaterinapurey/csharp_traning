@@ -21,7 +21,7 @@ namespace WebAddressbookTests
 
             List<ContactData> oldContacts = app.Contacts.GetContactList();
 
-
+            
             app.Contacts.Create(contact);
 
 
