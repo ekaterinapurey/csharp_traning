@@ -31,4 +31,9 @@
     <Folder Include="model\" />
     <Folder Include="appmanager\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="groups.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

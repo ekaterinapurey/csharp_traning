@@ -89,7 +89,10 @@ namespace WebAddressbookTests
                 }
                 else
                 {
-                    return CleanUp(HomePhone) + CleanUp(MobilePhone) + CleanUp(WorkPhone).Trim();
+                    return Firstname + " " + Lastname + "\r\n"
+                    + Address + "\r\n" + "\r\n" + "H: " + HomePhone
+                    + "\r\n" + "M: " + MobilePhone + "\r\n" + "W: "
+                    + WorkPhone + "\r\n" + "\r\n" + Email.Trim();
                 }
             }
             set

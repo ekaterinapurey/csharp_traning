@@ -15,6 +15,7 @@
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/selenium-manager/linux/selenium-manager
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/selenium-manager/macos/selenium-manager
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/selenium-manager/windows/selenium-manager.exe
+/Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/groups.csv
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/Testsplach.deps.json
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/Testsplach.runtimeconfig.json
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/Testsplach.dll
