@@ -15,28 +15,28 @@ namespace addressbook_test_data_generators {
             string format = args[2];
 
             writer.WriteLine(args[1]);
-             
-            //List<GroupData> groups = new List<GroupData>();
-            //for (int i = 0; i < count; i++)
-            //{
-            //    groups.Add(new GroupData(TestBase.GenerateRandomString(10))
-            //    {
-            //        Header = TestBase.GenerateRandomString(100),
-            //        Footer = TestBase.GenerateRandomString(100)
-            //    });
-            //}
-            //if (format == "csv")
-            //{
-            //    writeGroupsToCsvFile(groups, writer);
-            //}
-            //else if (format == "xml")
-            //{
-            //    writeGroupsToXmlFile(groups, writer);
-            //}
-            //else
-            //{
-            //    Console.Out.Write("Unrecognized format" + format);
-            //}
+
+            List<GroupData> groups = new List<GroupData>();
+            for (int i = 0; i < count; i++)
+            {
+                groups.Add(new GroupData(TestBase.GenerateRandomString(10))
+                {
+                    Header = TestBase.GenerateRandomString(100),
+                    Footer = TestBase.GenerateRandomString(100)
+                });
+            }
+            if (format == "csv")
+            {
+                writeGroupsToCsvFile(groups, writer);
+            }
+            else if (format == "xml")
+            {
+                writeGroupsToXmlFile(groups, writer);
+            }
+            else
+            {
+                Console.Out.Write("Unrecognized format" + format);
+            }
             writer.Close();
 
         }
