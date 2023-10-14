@@ -12,6 +12,7 @@
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/nunit.engine.api.dll
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/nunit.engine.core.dll
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/testcentric.engine.metadata.dll
+/Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/groups.json
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/selenium-manager/linux/selenium-manager
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/selenium-manager/macos/selenium-manager
 /Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/bin/Debug/net7.0/selenium-manager/windows/selenium-manager.exe
