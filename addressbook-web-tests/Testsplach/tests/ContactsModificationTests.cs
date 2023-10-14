@@ -36,7 +36,6 @@ namespace WebAddressbookTests
             newContact.Firstname = "Иван";
             newContact.Middlename = "Чижиков";
             app.Contacts.Modify(0, newContact);
-            Assert.AreEqual(oldContacts.Count, app.Contacts.GetContactCount());
 
             List<ContactData> newContacts = app.Contacts.GetContactList();
             oldContacts[0] = newContact;

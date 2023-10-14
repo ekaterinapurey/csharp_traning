@@ -52,7 +52,8 @@ namespace WebAddressbookTests
 
         public override string ToString()
         {
-            return "name=" + Lastname + " " + Firstname;
+            return "name=" + Lastname + " " + Firstname + Address + HomePhone + MobilePhone
+                + Email + Email2 + Email3;
         }
 
         public int CompareTo(ContactData other)
@@ -66,10 +67,11 @@ namespace WebAddressbookTests
             {
                 return result;
             }
-            else
+            else if (!String.IsNullOrEmpty(Lastname) && !String.IsNullOrEmpty(other.Lastname))
             {
                 return Lastname.CompareTo(other.Lastname);
             }
+            return 0;
         }
 
         public string Firstname { get; set; }
