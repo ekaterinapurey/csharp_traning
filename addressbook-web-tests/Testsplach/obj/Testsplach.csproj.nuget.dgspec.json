@@ -43,6 +43,10 @@
               "target": "Package",
               "version": "[17.5.0, )"
             },
+            "Microsoft.Office.Interop.Excel": {
+              "target": "Package",
+              "version": "[15.0.4795.1001, )"
+            },
             "NUnit": {
               "target": "Package",
               "version": "[3.13.3, )"
@@ -62,6 +66,14 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "Omnibasis.BigchainCSharp": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
+            "Omnibasis.CryptoConditionsCSharp": {
+              "target": "Package",
+              "version": "[1.0.2, )"
             },
             "Selenium.Support": {
               "target": "Package",

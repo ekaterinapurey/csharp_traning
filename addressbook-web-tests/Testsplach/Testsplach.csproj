@@ -20,6 +20,9 @@
     <PackageReference Include="Selenium.Support" Version="4.9.1" />
     <PackageReference Include="NUnitTestAdapter" Version="2.3.0" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="117.0.5938.9200" />
+    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
+    <PackageReference Include="Omnibasis.BigchainCSharp" Version="1.0.2" />
+    <PackageReference Include="Omnibasis.CryptoConditionsCSharp" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>

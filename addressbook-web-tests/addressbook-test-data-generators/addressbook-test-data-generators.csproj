@@ -14,5 +14,10 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
+    <PackageReference Include="ExcelLibrary" Version="1.2011.7.31" />
+    <PackageReference Include="ExcelMapper" Version="5.2.542" />
   </ItemGroup>
 </Project>
