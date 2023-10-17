@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 using WebAddressbookTests;
 using Newtonsoft.Json;
 using Excel = Microsoft.Office.Interop.Excel;
+using NPOI.SS.Formula.Functions;
 
 
 namespace addressbook_test_data_generators {
@@ -18,6 +19,7 @@ namespace addressbook_test_data_generators {
             string format = args[2];
 
             List<GroupData> groups = new List<GroupData>();
+            List<ContactData> contacts = new List<ContactData>();
             for (int i = 0; i < count; i++)
             {
                 groups.Add(new GroupData(TestBase.GenerateRandomString(10))
@@ -25,12 +27,22 @@ namespace addressbook_test_data_generators {
                     Header = TestBase.GenerateRandomString(100),
                     Footer = TestBase.GenerateRandomString(100)
                 });
+
+                
+                for (int y = 0; y < count; y++)
+                {
+                    contacts.Add(new ContactData(TestBase.GenerateRandomString(15), TestBase.GenerateRandomString(15))
+                    {
+                        MobilePhone = TestBase.GenerateRandomString(15),
+                        WorkPhone = TestBase.GenerateRandomString(15),
+                        Email = TestBase.GenerateRandomString(15),
+                        Address = TestBase.GenerateRandomString(15)
+                    });
+                }
             }
             if (format == "excel")
             {
                 writeGroupsToExcelFile(groups, filename);
-
-
             }
             else
             {
@@ -49,13 +61,36 @@ namespace addressbook_test_data_generators {
                 }
                 else
                 {
-                    Console.Out.Write("Unrecognized format" + format);
+                    System.Console.Out.Write("Unrecognized format" + format);
+                }
+                if (format == "xml")
+                {
+                    writeContactsToXmlFile(contacts, writer);
+                }
+                else if (format == "json")
+                {
+                    writeContactsToJsonFile(contacts, writer);
+                }
+                else
+                {
+                    System.Console.Out.Write("Unrecognized format" + format);
                 }
                 writer.Close();
 
 
             }
 
+        }
+
+        private static void writeContactsToJsonFile(object contacts, StreamWriter writer)
+        {
+            writer.Write(JsonConvert.SerializeObject(contacts, Newtonsoft.Json.Formatting.Indented));
+
+        }
+
+        private static void writeContactsToXmlFile(object contacts, StreamWriter writer)
+        {
+            new XmlSerializer(typeof(List<ContactData>)).Serialize(writer, contacts);
         }
 
         static void writeGroupsToExcelFile(List<GroupData> groups, string filename)
@@ -79,6 +114,7 @@ namespace addressbook_test_data_generators {
 
             wb.Close();
             app.Visible = false;
+            app.Quit();
 
         }
 

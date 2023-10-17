@@ -75,6 +75,9 @@ namespace WebAddressbookTests
                   Footer = range.Cells[i, 3].Value
                 });
             }
+            wb.Close();
+            app.Visible = false;
+            app.Quit();
             return groups;
         }
 
