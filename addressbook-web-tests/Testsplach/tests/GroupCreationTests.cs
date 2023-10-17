@@ -68,12 +68,12 @@ namespace WebAddressbookTests
             Excel.Range range = sheet.UsedRange;
             for (int i = 1; i<= range.Rows.Count; i++)
             {
-                groups.Add(new GroupData()
-                {
-                  Name = range.Cells[i, 1].Value,
-                  Header = range.Cells[i, 2].Value,
-                  Footer = range.Cells[i, 3].Value
-                });
+                //groups.Add(new GroupData()
+                //{
+                //  Name = range.Cells[i, 1].Value,
+                //  Header = range.Cells[i, 2].Value,
+                //  Footer = range.Cells[i, 3].Value
+                //});
             }
             wb.Close();
             app.Visible = false;

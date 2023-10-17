@@ -5,7 +5,9 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using Newtonsoft.Json;
 using System.Xml.Serialization;
-using NUnit.Framework;
+using System.Xml.Serialization;
+using Newtonsoft.Json;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace WebAddressbookTests
 {
@@ -45,7 +47,31 @@ namespace WebAddressbookTests
                  File.ReadAllText(@"contacts.json"));
         }
 
-        [Test, TestCaseSource("ContactDataFromXmlFile")]
+        public static IEnumerable<ContactData> ContactDataFromExcelFile()
+        {
+            List<ContactData> contacts = new List<ContactData>();
+            Excel.Application app = new Excel.Application();
+            Excel.Workbook wb = app.Workbooks.Open(Path.Combine(Directory.GetCurrentDirectory(), @"groups.xlsx"));
+            Excel.Worksheet sheet = (Excel.Worksheet)wb.ActiveSheet;
+            Excel.Range range = sheet.UsedRange;
+            //for (int i = 1; i <= range.Rows.Count; i++)
+            //{
+            //    contacts.Add(new ContactData()
+            //    {
+            //        Firstname = range.Cells[i, 1].Value,
+
+            //        Lastname = range.Cells[i, 2].Value,
+
+            //        Middlename = range.Cells[i, 3].Value
+            //    });
+            //}
+            wb.Close();
+            app.Visible = false;
+            app.Quit();
+            return contacts;
+        }
+
+        [Test, TestCaseSource("ContactDataFromExcelFile")]
         public void ContactCreationTest(ContactData contact)
         {
 
