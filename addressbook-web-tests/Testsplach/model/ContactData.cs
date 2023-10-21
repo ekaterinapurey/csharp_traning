@@ -109,6 +109,27 @@ namespace WebAddressbookTests
             return Regex.Replace(phone, "[ - ()]", "") + "\r\n";
         }
 
+        public string fullInfo;
+        public string FullInfo
+        {
+            get
+            {
+                if (fullInfo != null)
+                {
+                    return fullInfo.Replace(" ", "").Replace("\r\n", "").Replace("H:", "").Replace("M:", "").Replace("W:", "").Replace("F:", "").Replace("Homepage:", "").Replace("P:", "");
+                }
+                else
+                {
+                    return Firstname?.Trim() + Middlename?.Trim() + Lastname?.Trim()
+                 + AllEmails + AllPhones + Address + Id;
+                }
+            }
+            set
+            {
+                fullInfo = value;
+            }
+        }
+
         public ContactData(string firstName, string lastname)
         {
             Firstname = firstName;
