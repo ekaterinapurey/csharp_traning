@@ -26,19 +26,18 @@ namespace addressbook_test_data_generators {
                 {
                     Header = TestBase.GenerateRandomString(100),
                     Footer = TestBase.GenerateRandomString(100)
-                });
+                });                            
+            }
 
-                
-                for (int y = 0; y < count; y++)
+            for (int y = 0; y < count; y++)
+            {
+                contacts.Add(new ContactData(TestBase.GenerateRandomString(15), TestBase.GenerateRandomString(15))
                 {
-                    contacts.Add(new ContactData(TestBase.GenerateRandomString(15), TestBase.GenerateRandomString(15))
-                    {
-                        MobilePhone = TestBase.GenerateRandomString(15),
-                        WorkPhone = TestBase.GenerateRandomString(15),
-                        Email = TestBase.GenerateRandomString(15),
-                        Address = TestBase.GenerateRandomString(15)
-                    });
-                }
+                    MobilePhone = TestBase.GenerateRandomString(15),
+                    WorkPhone = TestBase.GenerateRandomString(15),
+                    Email = TestBase.GenerateRandomString(15),
+                    Address = TestBase.GenerateRandomString(15)
+                });
             }
             if (format == "excel")
             {
@@ -54,21 +53,11 @@ namespace addressbook_test_data_generators {
                 else if (format == "xml")
                 {
                     writeGroupsToXmlFile(groups, writer);
-                }
-                else if (format == "json")
-                {
-                    writeGroupsToJsonFile(groups, writer);
-                }
-                else
-                {
-                    System.Console.Out.Write("Unrecognized format" + format);
-                }
-                if (format == "xml")
-                {
                     writeContactsToXmlFile(contacts, writer);
                 }
                 else if (format == "json")
                 {
+                    writeGroupsToJsonFile(groups, writer);
                     writeContactsToJsonFile(contacts, writer);
                 }
                 else
