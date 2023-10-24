@@ -30,7 +30,7 @@ namespace WebAddressbookTests
             ContactData fromView = app.Contacts.GetContactInformationFromViewForm(0);
             ContactData fromForm = app.Contacts.GetContactInformationFromEditForm(0);
 
-            Assert.AreEqual(fromView.FullInfo, fromForm.FullInfo);
+            Assert.AreEqual(fromView.AllInfo, fromForm.AllInfo);
         }
     }
 }

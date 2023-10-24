@@ -25,10 +25,18 @@ namespace WebAddressbookTests
         public string allPhones;
         public string Address { get; set; }
         public string ViewForm { get; set; }
+        public string Nickname { get; set; }
+        public string Title { get; set; }
+        public string Company { get; set; }
 
         public ContactData(string firstname)
         {
            Firstname = firstname;
+        }
+
+
+        public ContactData()
+        {
         }
 
         public bool Equals(ContactData other)
@@ -109,24 +117,38 @@ namespace WebAddressbookTests
             return Regex.Replace(phone, "[ - ()]", "") + "\r\n";
         }
 
-        public string fullInfo;
-        public string FullInfo
+        public string allInfo = null;
+        public string AllInfo
         {
             get
             {
-                if (fullInfo != null)
+                if (allInfo == null)
                 {
-                    return fullInfo.Replace(" ", "").Replace("\r\n", "").Replace("H:", "").Replace("M:", "").Replace("W:", "").Replace("F:", "").Replace("Homepage:", "").Replace("P:", "");
+                    if (Firstname != null && Firstname != "") allInfo += Firstname;
+
+                    if (Middlename != null && Middlename != "") allInfo += " " + Middlename;
+
+                    if (Lastname != null && Lastname != "") allInfo += " " + Lastname;
+
+                    if (Nickname != null && Nickname != "") allInfo += " " + Nickname;
+
+                    if (Title != null && Title != "") allInfo += " " + Title;
+
+                    if (Company != null && Company != "") allInfo += " " + Company;
+
+                    if (Address != null && Address != "") allInfo += "\r\n" + Address;
+
+                    if (AllPhones != null && AllPhones != "") allInfo += "\r\n\r\n" + "H: " + AllPhones;
+
+                    if (AllEmails != null && AllEmails != "") allInfo += "\r\n" + "M: " + AllEmails;
+
+                    return allInfo;
                 }
-                else
-                {
-                    return Firstname?.Trim() + Middlename?.Trim() + Lastname?.Trim()
-                 + AllEmails + AllPhones + Address + Id;
-                }
+                return allInfo;
             }
             set
             {
-                fullInfo = value;
+                allInfo = value;
             }
         }
 
