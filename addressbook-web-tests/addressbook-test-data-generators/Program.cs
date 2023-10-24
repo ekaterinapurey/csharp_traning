@@ -1,11 +1,7 @@
-﻿
-using System.Xml;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 using WebAddressbookTests;
 using Newtonsoft.Json;
 using Excel = Microsoft.Office.Interop.Excel;
-using NPOI.SS.Formula.Functions;
-
 
 namespace addressbook_test_data_generators {
 
@@ -14,9 +10,10 @@ namespace addressbook_test_data_generators {
         static void Main(string[] args)
         {
 
-            int count = Convert.ToInt32(args[0]);
-            string filename = args[1];
-            string format = args[2];
+            string generatorType = args[0];
+            int count = Convert.ToInt32(args[1]);
+            string filename = args[2];
+            string format = args[3];
 
             List<GroupData> groups = new List<GroupData>();
             List<ContactData> contacts = new List<ContactData>();
@@ -41,7 +38,10 @@ namespace addressbook_test_data_generators {
             }
             if (format == "excel")
             {
-                writeGroupsToExcelFile(groups, filename);
+                if (generatorType == "groups")
+                {
+                    writeGroupsToExcelFile(groups, filename);
+                }  
             }
             else
             {
@@ -52,17 +52,30 @@ namespace addressbook_test_data_generators {
                 }
                 else if (format == "xml")
                 {
-                    writeGroupsToXmlFile(groups, writer);
-                    writeContactsToXmlFile(contacts, writer);
+                    if (generatorType == "groups") { 
+                        writeGroupsToXmlFile(groups, writer);
+                    }
+                    if (generatorType == "contacts")
+                    {
+                        writeContactsToXmlFile(contacts, writer);
+                    }
+                       
                 }
                 else if (format == "json")
                 {
-                    writeGroupsToJsonFile(groups, writer);
-                    writeContactsToJsonFile(contacts, writer);
+                    if (generatorType == "groups")
+                    {
+                        writeGroupsToJsonFile(groups, writer);
+                    }
+                    if (generatorType == "contacts")
+                    {
+                        writeContactsToJsonFile(contacts, writer);
+                    }
+                  
                 }
                 else
                 {
-                    System.Console.Out.Write("Unrecognized format" + format);
+                    Console.Out.Write("Unrecognized format" + format);
                 }
                 writer.Close();
 
