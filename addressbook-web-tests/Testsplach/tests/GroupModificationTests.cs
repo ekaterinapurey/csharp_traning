@@ -8,14 +8,14 @@ using OpenQA.Selenium.Support.UI;
 using System.Reflection;
 using OpenQA.Selenium;
 using System.Security.Cryptography;
-
+using AddressBookTests;
 
 namespace WebAddressbookTests
 {
 
     [TestFixture]
 
-	public class GroupModificationTests : AuthTestBase
+	public class GroupModificationTests : GroupTestBase
     {
 
 

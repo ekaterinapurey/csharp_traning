@@ -1,22 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System.Text;
-using NUnit.Framework;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
-using System.Reflection;
-using System.Diagnostics;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
-
-namespace WebAddressbookTests
+﻿namespace WebAddressbookTests
 {
     public class TestBase
     {
         protected ApplicationManager app;
+        public static bool Perform_Long_Check = true;
 
         [SetUp]
         public void SetupApplicationManager()

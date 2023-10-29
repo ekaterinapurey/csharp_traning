@@ -5,39 +5,36 @@ using System.Threading;
 using NUnit.Framework;
 using System.Reflection;
 using System.Collections.Generic;
-
+using AddressBookTests;
 
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class GroupRemovalTests : AuthTestBase
+    public class GroupRemovalTests : GroupTestBase
     {
         [Test]
         public void GroupRemovalTest()
         {
-            List<GroupData> oldGroups = app.Groups.GetGroupList();
 
-            if (!app.Groups.GroupExists()) //  группа не существует
+            app.Navigator.GoToGroupsPage();
+            if (!app.Groups.GroupExists())
             {
                 GroupData group = new GroupData("x");
                 group.Header = "x";
                 group.Footer = "x";
 
                 app.Groups.Create(group);
-
             }
-            app.Groups.Remove(0);
 
-            Assert.AreEqual(oldGroups.Count - 1, app.Groups.GetGroupCount());
+            List<GroupData> oldGroups = GroupData.GetAll();
 
-
-            List<GroupData> newGroups = app.Groups.GetGroupList();
             GroupData toBeRemoved = oldGroups[0];
-            oldGroups.RemoveAt(0);
-            oldGroups.Sort();
-            newGroups.Sort();
-            Assert.AreEqual(oldGroups, newGroups);
+            app.Groups.Remove(toBeRemoved);
 
+            List<GroupData> newGroups = GroupData.GetAll();
+            oldGroups.RemoveAt(0);
+
+            Assert.AreEqual(oldGroups, newGroups);
 
             foreach (GroupData group in newGroups)
             {

@@ -8,11 +8,12 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 using Excel = Microsoft.Office.Interop.Excel;
+using AddressBookTests;
 
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class GroupCreationTests : AuthTestBase
+    public class GroupCreationTests : GroupTestBase
     {
         public static IEnumerable <GroupData> RandomGroupDataProvaider()
         {
@@ -81,7 +82,7 @@ namespace WebAddressbookTests
             return groups;
         }
 
-        [Test, TestCaseSource ("GroupDataFromExcelFile")]
+        [Test, TestCaseSource ("GroupDataFromJsonFile")]
 
         public void GroupCreationTest(GroupData group)
         {
