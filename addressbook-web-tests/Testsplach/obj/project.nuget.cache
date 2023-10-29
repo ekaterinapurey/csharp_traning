@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "hTfN9jQMK+lLSwh2o+R7rKNn17HRpeI3NZL5oyUF05oMFio746MAUZWI+uG8UN+wK6JabrpY/OZ8nyGfLBCvCQ==",
+=======
+  "dgSpecHash": "lT5bIbSreNPVGPCDogzo6+1PwWlDoTF8AejlXA+DVjLG3UQZ71hW4ECcbvcpeDvk0unw5ewA0wXowOGtBNvLHw==",
+>>>>>>> task_13
   "success": true,
   "projectFilePath": "/Users/ekaterinapyreu/Projects/csharp_traning/addressbook-web-tests/Testsplach/Testsplach.csproj",
   "expectedPackageFiles": [

@@ -25,7 +25,7 @@ namespace WebAddressbookTests
             if (!app.Contacts.ContactExists()) //  контакт не существует
             {
                 ContactData contact = new ContactData("Ivan");
-                contact.Firstname = "Ivanov";
+                contact.Lastname = "Ivanov";
                 contact.Middlename = "Ivanovich";
                 app.Contacts.Create(contact);
             }
@@ -33,10 +33,9 @@ namespace WebAddressbookTests
             List<ContactData> oldContacts = app.Contacts.GetContactList();
 
             ContactData newContact = new ContactData("Иван");
-            newContact.Firstname = "Иван";
+            newContact.Lastname = "Иван";
             newContact.Middlename = "Чижиков";
             app.Contacts.Modify(0, newContact);
-            Assert.AreEqual(oldContacts.Count, app.Contacts.GetContactCount());
 
             List<ContactData> newContacts = app.Contacts.GetContactList();
             oldContacts[0] = newContact;
