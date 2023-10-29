@@ -8,15 +8,15 @@ using OpenQA.Selenium.Support.UI;
 using System.Reflection;
 using OpenQA.Selenium;
 using System.Security.Cryptography;
-
+using AddressBookTests;
 
 namespace WebAddressbookTests
 {
 
     [TestFixture]
 
-	public class ContactModificationTests : AuthTestBase
-	{
+	public class ContactModificationTests : ContactTestBase
+    {
 
 
     [Test]
@@ -30,15 +30,15 @@ namespace WebAddressbookTests
                 app.Contacts.Create(contact);
             }
 
-            List<ContactData> oldContacts = app.Contacts.GetContactList();
+            List<ContactData> oldContacts = ContactData.GetAll();
 
-            ContactData newContact = new ContactData("Иван");
-            newContact.Lastname = "Иван";
-            newContact.Middlename = "Чижиков";
-            app.Contacts.Modify(0, newContact);
+            ContactData toBeModified = oldContacts[0];
+            toBeModified.Lastname = "Иван";
+            toBeModified.Middlename = "Чижиков";
+            app.Contacts.Modify(toBeModified);
 
-            List<ContactData> newContacts = app.Contacts.GetContactList();
-            oldContacts[0] = newContact;
+            List<ContactData> newContacts = ContactData.GetAll();
+            oldContacts[0] = toBeModified;
             oldContacts.Sort();
             newContacts.Sort();
             Assert.AreEqual(oldContacts, newContacts);

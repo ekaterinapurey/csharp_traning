@@ -31,19 +31,21 @@ namespace WebAddressbookTests
                 app.Groups.Create(group);
             }
 
-            GroupData newData = new GroupData("zzz");
-             newData.Header = null;
-             newData.Footer = null;
 
-            List<GroupData> oldGroups = app.Groups.GetGroupList();
+            List<GroupData> oldGroups = GroupData.GetAll();
 
-            app.Groups.Modify(0, newData);
+            GroupData toBeModify = oldGroups[0];
+            toBeModify.Name = "zzz";
+            toBeModify.Header = null;
+            toBeModify.Footer = null;
+
+            app.Groups.Modify(toBeModify);
 
             Assert.AreEqual(oldGroups.Count, app.Groups.GetGroupCount());
 
 
-            List<GroupData> newGroups = app.Groups.GetGroupList();
-            oldGroups[0] = newData;
+            List<GroupData> newGroups = GroupData.GetAll();
+            oldGroups[0] = toBeModify;
             oldGroups.Sort();
             newGroups.Sort();
             Assert.AreEqual(oldGroups, newGroups);

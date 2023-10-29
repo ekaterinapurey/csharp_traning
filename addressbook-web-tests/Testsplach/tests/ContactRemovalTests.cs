@@ -4,17 +4,17 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using NUnit.Framework;
 using System.Reflection;
+using AddressBookTests;
 
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class ContactRemovalTests : AuthTestBase
+    public class ContactRemovalTests : ContactTestBase
     {
         [Test]
         public void ContactRemovalTest()
         {
-            List<ContactData> oldContacts = app.Contacts.GetContactList();
-
+          
             if (!app.Contacts.ContactExists()) //  контакт не существует
             {
                 ContactData contact = new ContactData("Ivan");
@@ -23,12 +23,14 @@ namespace WebAddressbookTests
 
             }
 
-            app.Contacts.Remove(0);
+            List<ContactData> oldContacts = ContactData.GetAll();
+
+            ContactData toBeRemoved = oldContacts[0];
+            app.Contacts.Remove(toBeRemoved);
 
             Assert.AreEqual(oldContacts.Count - 1, app.Contacts.GetContactCount());
 
-            List<ContactData> newContacts = app.Contacts.GetContactList();
-            ContactData toBeRemoved = oldContacts[0];
+            List<ContactData> newContacts = ContactData.GetAll();
             oldContacts.RemoveAt(0);
             oldContacts.Sort();
             newContacts.Sort();

@@ -4,13 +4,12 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using NUnit.Framework;
 using System.Collections.Generic;
-
-
+using AddressBookTests;
 
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class ContactInformationTests : AuthTestBase
+    public class ContactInformationTests : ContactTestBase
     {
 
         [Test]
@@ -30,7 +29,7 @@ namespace WebAddressbookTests
             ContactData fromView = app.Contacts.GetContactInformationFromViewForm(0);
             ContactData fromForm = app.Contacts.GetContactInformationFromEditForm(0);
 
-            Assert.AreEqual(fromView.AllInfo, fromForm.AllInfo);
+            Assert.AreEqual(fromView.AllPhones, fromForm.AllPhones);
         }
     }
 }

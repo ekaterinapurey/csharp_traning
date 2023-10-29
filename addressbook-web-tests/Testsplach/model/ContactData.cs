@@ -100,17 +100,16 @@ namespace WebAddressbookTests
         {
             get
             {
-                if (allPhones != null)
+                if (allPhones != null && allPhones != String.Empty)
                 {
                     return allPhones;
 
                 }
                 else
                 {
-                    return Firstname + " " + Lastname + "\r\n"
-                    + Address + "\r\n" + "\r\n" + "H: " + HomePhone
-                    + "\r\n" + "M: " + MobilePhone + "\r\n" + "W: "
-                    + WorkPhone + "\r\n" + "\r\n" + Email.Trim();
+                    return "H: " + HomePhone
+                    + "M: " + MobilePhone + "W: "
+                    + WorkPhone + Email?.Trim();
                 }
             }
             set
@@ -133,7 +132,7 @@ namespace WebAddressbookTests
         {
             get
             {
-                if (allInfo == null)
+                if (allInfo == null && allInfo != String.Empty)
                 {
                     if (Firstname != null && Firstname != "") allInfo += Firstname;
 

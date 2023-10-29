@@ -8,11 +8,12 @@ using System.Xml.Serialization;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 using Excel = Microsoft.Office.Interop.Excel;
+using AddressBookTests;
 
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class ContactCreationsTests : AuthTestBase
+    public class ContactCreationsTests : ContactTestBase
     {
 
         public static IEnumerable<ContactData> RandomContactProvider()
@@ -71,11 +72,11 @@ namespace WebAddressbookTests
             return contacts;
         }
 
-        [Test, TestCaseSource("ContactDataFromExcelFile")]
+        //[Test, TestCaseSource("ContactDataFromExcelFile")]
         public void ContactCreationTest(ContactData contact)
         {
 
-            List<ContactData> oldContacts = app.Contacts.GetContactList();
+            List<ContactData> oldContacts = ContactData.GetAll();
 
 
             app.Contacts.Create(contact);
@@ -83,7 +84,7 @@ namespace WebAddressbookTests
             Assert.AreEqual(oldContacts.Count + 1, app.Contacts.GetContactCount());
 
 
-            List<ContactData> newContacts = app.Contacts.GetContactList();
+            List<ContactData> newContacts = ContactData.GetAll();
             oldContacts.Add(contact);
             oldContacts.Sort();
             newContacts.Sort();

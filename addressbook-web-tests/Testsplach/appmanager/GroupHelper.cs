@@ -33,13 +33,13 @@ namespace WebAddressbookTests
 
         }
 
-        public GroupHelper Modify(int v, GroupData newData)
+        public GroupHelper Modify(GroupData group)
         {
             manager.Navigator.GoToGroupsPage();
 
-            SelectGroup(v);
+            SelectGroupById(group.Id);
             InitGroupModification();
-            FillGroupForm(newData);
+            FillGroupForm(group);
             SubmitGroupModification();
             ReturnToGroupsPage();
             return this;

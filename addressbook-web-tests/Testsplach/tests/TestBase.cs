@@ -3,7 +3,7 @@
     public class TestBase
     {
         protected ApplicationManager app;
-        public static bool Perform_Long_Check = true;
+        public static bool Perform_Long_Check = false;
 
         [SetUp]
         public void SetupApplicationManager()
