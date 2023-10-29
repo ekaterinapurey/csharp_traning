@@ -31,6 +31,8 @@ namespace WebAddressbookTests
         public string Nickname { get; set; }
         public string Title { get; set; }
         public string Company { get; set; }
+        [Column(Name = "deprecated")]
+        public string Deprecated { get; set; }
 
         public ContactData(string firstname)
         {
@@ -165,6 +167,15 @@ namespace WebAddressbookTests
         {
             Firstname = firstName;
             Lastname = lastname;
+        }
+
+        public static List<ContactData> GetAll()
+        {
+            using (AddressBookDB db = new AddressBookDB())
+            {
+                return (from c in db.Contacts.Where(contact => contact.Deprecated == "0000 - 00 - 00 00:00:00") select c).ToList();
+            }
+
         }
     }
 
