@@ -118,6 +118,15 @@ namespace WebAddressbookTests
             end = DateTime.Now;
             Console.Out.WriteLine(end.Subtract(start));
         }
-   
+
+        [Test]
+        public void TestDBConnectivity()
+        {
+            foreach (ContactData contact in GroupData.GetAll()[0].GetContacts())
+            {
+                Console.Out.WriteLine(contact);
+            }
+        }
+
     }
 }

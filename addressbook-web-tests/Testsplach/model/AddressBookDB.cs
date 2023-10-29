@@ -1,4 +1,5 @@
 ﻿using System;
+using AddressBookTests;
 using LinqToDB;
 
 namespace WebAddressbookTests
@@ -10,6 +11,8 @@ namespace WebAddressbookTests
         public ITable<GroupData> Groups { get { return this.GetTable<GroupData>(); } }
 
         public ITable<ContactData> Contacts { get { return this.GetTable<ContactData>(); } }
+
+        public ITable<GroupContactRelation> GroupContactRelation { get { return this.GetTable<GroupContactRelation>(); } }
     }
 }
 

@@ -6,6 +6,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using LinqToDB.Mapping;
+using Microsoft.Office.Interop.Excel;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -13,6 +15,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
+    [Table(Name = "addressbook")]
     public class ContactData : IEquatable<ContactData>, IComparable<ContactData>
     {
         public string HomePhone { get; set; }
@@ -82,12 +85,15 @@ namespace WebAddressbookTests
             return 0;
         }
 
+        [Column(Name = "id"), PrimaryKey]
+        public string Id { get; set; }
+        [Column(Name = "firstname")]
         public string Firstname { get; set; }
         public string Middlename { get; set; }
-
+        [Column(Name = "lastname")]
         public string Lastname { get; set; }
 
-        public string Id { get; set; }
+        
         public string AllPhones
         {
             get
