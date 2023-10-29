@@ -18,6 +18,7 @@ namespace WebAddressbookTests
         public string HomePhone { get; set; }
         public string MobilePhone { get; set; }
         public string WorkPhone { get; set; }
+        public string Fax { get; set; }
         public string AllEmails { get; set; }
         public string Email { get; set; }
         public string Email2 { get; set; }
@@ -94,12 +95,12 @@ namespace WebAddressbookTests
             {
                 if (allPhones != null)
                 {
-                    return allPhones;
+                    return allPhones.Replace("\n", "").Replace("\r", "");
 
                 }
                 else
                 {
-                    return CleanUp(HomePhone) + CleanUp(MobilePhone) + CleanUp(WorkPhone).Trim();
+                    return (CleanUp(HomePhone) + CleanUp(MobilePhone) + CleanUp(WorkPhone).Trim()).Replace("\n", "").Replace("\r", "");
                 }
             }
             set
@@ -114,7 +115,7 @@ namespace WebAddressbookTests
             {
                 return "";
             }
-            return Regex.Replace(phone, "[ - ()]", "") + "\r\n";
+            return Regex.Replace(phone, "[ - ()]", "") + "\n";
         }
 
         public string allInfo = null;
@@ -136,15 +137,25 @@ namespace WebAddressbookTests
 
                     if (Company != null && Company != "") allInfo += " " + Company;
 
-                    if (Address != null && Address != "") allInfo += "\r\n" + Address;
+                    if (Address != null && Address != "") allInfo += Address;
 
-                    if (AllPhones != null && AllPhones != "") allInfo += "\r\n\r\n" + "H: " + AllPhones;
+                    if (HomePhone != null && HomePhone != "") allInfo += "H: " + HomePhone;
 
-                    if (AllEmails != null && AllEmails != "") allInfo += "\r\n" + "M: " + AllEmails;
+                    if (MobilePhone != null && MobilePhone != "") allInfo += "M: " + MobilePhone;
 
-                    return allInfo;
+                    if (WorkPhone != null && WorkPhone != "") allInfo += "W: " + WorkPhone;
+
+                    if (Fax != null && Fax != "") allInfo += "F: " + Fax;
+
+                    if (Email != null && Email != "") allInfo +=  Email;
+
+                    if (Email2 != null && Email2 != "") allInfo += Email2;
+
+                    if (Email3 != null && Email3 != "") allInfo += Email3;
+
+                    return allInfo.Replace("\n", "").Replace("\r", "");
                 }
-                return allInfo;
+                return allInfo.Replace("\n", "").Replace("\r", "");
             }
             set
             {

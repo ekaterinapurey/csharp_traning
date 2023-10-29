@@ -54,6 +54,9 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("middlename")).Click();
             driver.FindElement(By.Name("middlename")).Clear();
             driver.FindElement(By.Name("middlename")).SendKeys(contact.Middlename);
+            driver.FindElement(By.Name("lastname")).Click();
+            driver.FindElement(By.Name("lastname")).Clear();
+            driver.FindElement(By.Name("lastname")).SendKeys(contact.Lastname);
             return this;
         }
 
@@ -170,6 +173,10 @@ namespace WebAddressbookTests
             string homePhone = driver.FindElement(By.Name("home")).GetAttribute("value");
             string mobilePhone = driver.FindElement(By.Name("mobile")).GetAttribute("value");
             string workPhone = driver.FindElement(By.Name("work")).GetAttribute("value");
+            string email = driver.FindElement(By.Name("email")).GetAttribute("value");
+            string email2 = driver.FindElement(By.Name("email2")).GetAttribute("value");
+            string email3 = driver.FindElement(By.Name("email3")).GetAttribute("value");
+            string fax = driver.FindElement(By.Name("fax")).GetAttribute("value");
 
             return new ContactData(firstName, lastName)
             {
@@ -181,7 +188,10 @@ namespace WebAddressbookTests
                 Middlename = middleName,
                 Title = title,
                 Nickname = nickName,
-
+                Email = email,
+                Fax = fax,
+                Email2 = email2,
+                Email3 = email3,
             };
 
 

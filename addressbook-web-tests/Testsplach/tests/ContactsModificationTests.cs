@@ -33,8 +33,8 @@ namespace WebAddressbookTests
             List<ContactData> oldContacts = app.Contacts.GetContactList();
 
             ContactData newContact = new ContactData("Иван");
-            newContact.Lastname = "Иван";
-            newContact.Middlename = "Чижиков";
+            newContact.Lastname = "Чижиков";
+            newContact.Middlename = "Петрович";
             app.Contacts.Modify(0, newContact);
 
             List<ContactData> newContacts = app.Contacts.GetContactList();
