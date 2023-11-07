@@ -166,6 +166,7 @@ namespace WebAddressbookTests
         {
             Firstname = firstName;
             Lastname = lastname;
+            Middlename = "";
         }
 
         public static List<ContactData> GetAll()
