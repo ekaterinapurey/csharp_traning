@@ -75,16 +75,16 @@ namespace WebAddressbookTests
             {
                 return 1;
             }
-            int result = Firstname.CompareTo(other.Firstname);
-            if (result != 0)
-            {
-                return result;
-            }
-            else if (!String.IsNullOrEmpty(Lastname) && !String.IsNullOrEmpty(other.Lastname))
-            {
-                return Lastname.CompareTo(other.Lastname);
-            }
-            return 0;
+            //int result = Firstname.CompareTo(other.Firstname);
+            //if (result != 0)
+            //{
+            //    return result;
+            //}
+            //else if (!String.IsNullOrEmpty(Lastname) && !String.IsNullOrEmpty(other.Lastname))
+            //{
+            //    return Lastname.Equals(other.Lastname) ? Id.CompareTo(other.Id) : Lastname.CompareTo(other.Lastname);
+            //}
+            return Id.CompareTo(other.Id);
         }
 
         [Column(Name = "id"), PrimaryKey]

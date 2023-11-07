@@ -53,7 +53,10 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("firstname")).SendKeys(contact.Firstname);
             driver.FindElement(By.Name("middlename")).Click();
             driver.FindElement(By.Name("middlename")).Clear();
-            driver.FindElement(By.Name("middlename")).SendKeys(contact.Middlename);
+            driver.FindElement(By.Name("middlename"))?.SendKeys(contact.Middlename);
+            driver.FindElement(By.Name("lastname")).Click();
+            driver.FindElement(By.Name("lastname")).Clear();
+            driver.FindElement(By.Name("lastname"))?.SendKeys(contact.Lastname);
             return this;
         }
 
@@ -69,7 +72,8 @@ namespace WebAddressbookTests
         public ContactHelper Modify(ContactData contact)
         {
             manager.Navigator.GoToHomePage();
-            InitContactModification(0);
+            SelectContact(contact.Id);
+            ClickOnEditElementEditing();
             FillContactForm(contact);
             SubmitContactModification();
             manager.Navigator.GoToHomePage();
@@ -83,6 +87,12 @@ namespace WebAddressbookTests
                .FindElements(By.TagName("td"))[7]
                .FindElement(By.TagName("a")).Click();
 
+            return this;
+        }
+
+        public ContactHelper ClickOnEditElementEditing()
+        {
+            driver.FindElement(By.CssSelector("img[alt=\"Edit\"]")).Click();
             return this;
         }
 
@@ -138,7 +148,7 @@ namespace WebAddressbookTests
 
         public bool ContactExists()
         {
-            return IsElementPresent(By.Name("selected[]"));
+            return ContactData.GetAll().Count() > 0;
         }
 
         public ContactData GetContactInformationFromTable(int index)
