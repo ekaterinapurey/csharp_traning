@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using mantis_tests.appmanager;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -14,17 +15,23 @@ namespace mantis_tests
         protected LoginHelper loginHelper;
         protected ProjectHelper projectHelper;
         protected NavigationHelper navigationHelper;
+
+        public AdminHelper Admin { get; set; }
+        public APIHelper API { get; set; }
+
         private static ThreadLocal<ApplicationManager> app = new ThreadLocal<ApplicationManager>();
 
         private ApplicationManager()
         {
             driver = new ChromeDriver();
-            baseURL = "http://localhost/mantisbt-1.3.20/login_page.php";
+            baseURL = "http://localhost/mantisbt-1.3.20";
             verificationErrors = new StringBuilder();
             Registration = new RegistrationHelper(this);
             loginHelper = new LoginHelper(this);
             projectHelper = new ProjectHelper(this);
             navigationHelper = new NavigationHelper(this, baseURL);
+            Admin = new AdminHelper(this, baseURL);
+            API = new APIHelper(this);
 
         }
 
@@ -46,7 +53,7 @@ namespace mantis_tests
             if (!app.IsValueCreated)
             {
                 ApplicationManager newInstance = new ApplicationManager();
-                newInstance.driver.Url = "http://localhost/mantisbt-1.3.20/login_page.php";
+                newInstance.driver.Url = newInstance.baseURL + "/login_page.php";
                 app.Value = newInstance;
 
             }
