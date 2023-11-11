@@ -69,11 +69,11 @@ namespace WebAddressbookTests
 
         }
 
-        public ContactHelper Modify(ContactData contact)
+        public ContactHelper Modify(ContactData contact, int index)
         {
             manager.Navigator.GoToHomePage();
             SelectContact(contact.Id);
-            ClickOnEditElementEditing();
+            ClickOnEditElementEditing(index);
             FillContactForm(contact);
             SubmitContactModification();
             manager.Navigator.GoToHomePage();
@@ -90,9 +90,9 @@ namespace WebAddressbookTests
             return this;
         }
 
-        public ContactHelper ClickOnEditElementEditing()
+        public ContactHelper ClickOnEditElementEditing(int index)
         {
-            driver.FindElement(By.CssSelector("img[alt=\"Edit\"]")).Click();
+            driver.FindElement(By.XPath("//table[@id='maintable']/tbody/tr[" + (index + 2) +"]/td[8]/a/img")).Click();
             return this;
         }
 

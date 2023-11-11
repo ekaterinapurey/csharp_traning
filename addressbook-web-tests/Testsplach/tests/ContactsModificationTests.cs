@@ -36,7 +36,7 @@ namespace WebAddressbookTests
             toBeModified.Lastname = "Пупкин";
             toBeModified.Firstname = "Петя";
             toBeModified.Middlename = "Саныч";
-            app.Contacts.Modify(toBeModified);
+            app.Contacts.Modify(toBeModified, 0);
 
             List<ContactData> newContacts = ContactData.GetAll();
             oldContacts[0] = toBeModified;
