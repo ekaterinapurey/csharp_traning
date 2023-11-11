@@ -163,6 +163,33 @@ namespace WebAddressbookTests
             }
         }
 
+        public string shortInfo = null;
+        public string ShortInfo
+        {
+            get
+            {
+                if (shortInfo == null)
+                {
+                    if (Firstname != null && Firstname != "") shortInfo += Firstname;
+
+                    if (Lastname != null && Lastname != "") shortInfo += " " + Lastname;
+
+                    if (Address != null && Address != "") shortInfo += Address;
+
+                    if (AllPhones != null && AllPhones != "") shortInfo += AllPhones;
+
+                    if (AllEmails != null && AllEmails != "") shortInfo += AllEmails;
+
+                    return shortInfo.Replace("\n", "").Replace("\r", "");
+                }
+                return shortInfo.Replace("\n", "").Replace("\r", "");
+            }
+            set
+            {
+                shortInfo = value;
+            }
+        }
+
         public ContactData(string firstName, string lastname)
         {
             Firstname = firstName;
