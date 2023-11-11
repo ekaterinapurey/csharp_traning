@@ -10,8 +10,12 @@ namespace mantis_tests
         [Test]
         public void ProjectRemovingTest()
         {
-            List<ProjectData> projects = new List<ProjectData>();
-            projects = app.Project.GetProjects();
+            AccountData account = new AccountData()
+            {
+                Name = "administrator",
+                Password = "root"
+            };
+            List<ProjectData> projects = app.API.GetProjects(account);
             if (projects.Count == 0)
             {
                 ProjectData newProject = new ProjectData("test" + TestBase.GenerateRandomString(5));

@@ -20,9 +20,9 @@ namespace mantis_tests
 			{
 				Summary = "some short",
 				Description = "some long",
-				Category = "1",
+				Category = "General",
 			};
-			app.API.CreateNewIssue(account, issue);
+			app.API.CreateNewIssue(account, project, issue);
 		}
 	}
 }
