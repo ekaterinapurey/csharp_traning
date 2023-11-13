@@ -42,7 +42,6 @@
     <None Remove="appmanager\" />
     <None Remove="tests\" />
     <None Remove="model\" />
-    <None Remove="Protos\mantisconnect.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="appmanager\" />
@@ -50,8 +49,8 @@
     <Folder Include="model\" />
   </ItemGroup>
   <ItemGroup>
-    <Protobuf Include="Protos\mantisconnect.php" GrpcServices="ClientAndServer">
-      <SourceUri>http://localhost/mantisbt-1.3.20/api/soap/mantisconnect.php?wsdl</SourceUri>
+    <Protobuf Include="..\..\..\..\..\Applications\XAMPP\xamppfiles\htdocs\mantisbt-1.3.20\api\soap\mantisconnect.wsdl" GrpcServices="Client">
+      <Link>Protos\mantisconnect.wsdl</Link>
     </Protobuf>
   </ItemGroup>
 </Project>

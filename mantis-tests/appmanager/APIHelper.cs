@@ -21,8 +21,19 @@ namespace mantis_tests
 
         public List<ProjectData> GetProjects(AccountData account)
         {
+            List<ProjectData> projects = new List<ProjectData>();
             Mantis.MantisConnectPortTypeClient client = new Mantis.MantisConnectPortTypeClient();
-            return client.mc_projects_get_user_accessible(account.Name, account.Password);
+            Mantis.ProjectData project = new Mantis.ProjectData();
+            Mantis.ProjectData[] projectsMantis = client.mc_projects_get_user_accessible(account.Name, account.Password);
+            foreach (Mantis.ProjectData item in projectsMantis)
+            {
+                projects.Add(new ProjectData(item.name)
+                {
+                    Id = item.id,
+                    Description = item.description
+                });
+            }
+            return projects;
         }
 
         public void CreateNewProject(AccountData account, ProjectData project)
@@ -31,7 +42,7 @@ namespace mantis_tests
             Mantis.ProjectData projectCreation = new Mantis.ProjectData();
             projectCreation.name = project.Name;
            
-            client.mc_project_add(account.Name, account.Password, projectCreation);
+            client.mc_project_addAsync(account.Name, account.Password, projectCreation);
         }
     }
 }
