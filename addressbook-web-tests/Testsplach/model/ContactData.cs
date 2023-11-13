@@ -180,9 +180,9 @@ namespace WebAddressbookTests
 
                     if (AllEmails != null && AllEmails != "") shortInfo += AllEmails;
 
-                    return shortInfo.Replace("\n", "").Replace("\r", "");
+                    return shortInfo;
                 }
-                return shortInfo.Replace("\n", "").Replace("\r", "");
+                return shortInfo;
             }
             set
             {
