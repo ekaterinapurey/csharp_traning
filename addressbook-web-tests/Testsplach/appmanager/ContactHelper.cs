@@ -8,6 +8,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using System.Text.RegularExpressions;
+using System.Reflection;
 
 namespace WebAddressbookTests
 {
@@ -69,11 +70,11 @@ namespace WebAddressbookTests
 
         }
 
-        public ContactHelper Modify(ContactData contact, int index)
+        public ContactHelper Modify(ContactData contact)
         {
             manager.Navigator.GoToHomePage();
             SelectContact(contact.Id);
-            ClickOnEditElementEditing(index);
+            ClickOnEditElementEditing(contact.Id);
             FillContactForm(contact);
             SubmitContactModification();
             manager.Navigator.GoToHomePage();
@@ -90,9 +91,9 @@ namespace WebAddressbookTests
             return this;
         }
 
-        public ContactHelper ClickOnEditElementEditing(int index)
+        public ContactHelper ClickOnEditElementEditing(string Id)
         {
-            driver.FindElement(By.XPath("//table[@id='maintable']/tbody/tr[" + (index + 2) +"]/td[8]/a/img")).Click();
+            driver.FindElement(By.XPath("//input[@name='selected[]' and @value='" + Id + "']/ancestor::tr//img[@title='Edit']")).Click();
             return this;
         }
 
