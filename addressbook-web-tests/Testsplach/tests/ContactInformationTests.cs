@@ -1,13 +1,4 @@
-﻿using System;//1
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using NUnit.Framework;
-using System.Collections.Generic;
-
-
-
-namespace WebAddressbookTests
+﻿namespace WebAddressbookTests
 {
     [TestFixture]
     public class ContactInformationTests : AuthTestBase

@@ -177,6 +177,9 @@ namespace WebAddressbookTests
             string email2 = driver.FindElement(By.Name("email2")).GetAttribute("value");
             string email3 = driver.FindElement(By.Name("email3")).GetAttribute("value");
             string fax = driver.FindElement(By.Name("fax")).GetAttribute("value");
+            string homepage = driver.FindElement(By.Name("homepage")).GetAttribute("value");
+            string address2 = driver.FindElement(By.Name("address2")).GetAttribute("value");
+            string notes = driver.FindElement(By.Name("notes")).GetAttribute("value");
 
             return new ContactData(firstName, lastName)
             {
@@ -192,6 +195,9 @@ namespace WebAddressbookTests
                 Fax = fax,
                 Email2 = email2,
                 Email3 = email3,
+                HomePage = homepage,
+                Address2 = address2,
+                Notes = notes,
             };
 
 
