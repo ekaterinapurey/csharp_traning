@@ -131,13 +131,13 @@ namespace WebAddressbookTests
 
                     if (HomePhone != null && HomePhone != "") allInfo += "\r\n\r\n" + "H: " + HomePhone;
 
-                    if (MobilePhone != null && MobilePhone != "") allInfo += "\r\n" + "M: " + MobilePhone;
+                    if (MobilePhone != null && MobilePhone != "") allInfo += "\n\n" + "M: " + MobilePhone;
 
                     if (WorkPhone != null && WorkPhone != "") allInfo += "\r\n" + "W: " + WorkPhone;
 
                     if (Fax != null && Fax != "") allInfo += "\r\n" + "F: " + Fax;
 
-                    if (Email != null && Email != "") allInfo += "\r\n\r\n" + Email;
+                    if (Email != null && Email != "") allInfo += "\n\n" + Email;
 
                     if (Email2 != null && Email2 != "") allInfo += "\r\n" + Email2;
 
